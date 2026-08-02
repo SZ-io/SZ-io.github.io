@@ -54,7 +54,7 @@
                     MATAN ELGRISSI
                 </h1>
                 <p class="text-xs sm:text-base font-bold text-slate-500 uppercase tracking-wide">
-                    Computer Science Student & Developer
+                    Computer Science Student & Systems/ML Developer
                 </p>
             </div>
 
@@ -64,7 +64,7 @@
                 </div>
                 <div class="md:col-span-8">
                     <p class="text-base sm:text-xl font-medium text-slate-800 leading-relaxed">
-                        Computer Science student with a strong interest in Machine Learning and Computer Vision. I focus on the practical implementation of established algorithms and neural networks, bridging the gap between mathematical theory and working code.
+                        Computer Science student focused on Systems Programming with Rust & C, alongside Machine Learning foundations in Python. Passionate about OS-level execution, concurrency, asynchronous systems, and building ML models from scratch.
                     </p>
                 </div>
             </div>
@@ -73,18 +73,18 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
                 <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-sm">
                     <span class="text-xs font-bold text-slate-400">01.</span>
-                    <h3 class="text-sm sm:text-base font-black uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3">Machine Learning</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Building digit recognition NNs & backpropagation algorithms from scratch using Python & NumPy.</p>
+                    <h3 class="text-sm sm:text-base font-black uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3">Systems & Rust</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Developing asynchronous terminal shells, Tokio process execution, and memory-safe TCP network servers in Rust & C.</p>
                 </div>
                 <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-sm">
                     <span class="text-xs font-bold text-slate-400">02.</span>
-                    <h3 class="text-sm sm:text-base font-black uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3">Low-Level Systems</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Developing Linux shell interpreters, process management, and POSIX system calls in C.</p>
+                    <h3 class="text-sm sm:text-base font-black uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3">Machine Learning</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Building digit recognition NNs, custom backpropagation, and hyperparameter tuning from scratch using Python & NumPy.</p>
                 </div>
                 <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80 shadow-sm">
                     <span class="text-xs font-bold text-slate-400">03.</span>
                     <h3 class="text-sm sm:text-base font-black uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3">Network Architecture</h3>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Creating real-time TCP socket servers, multi-threaded communication, and CustomTkinter GUIs.</p>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Implementing socket-level networking protocols, thread/process synchronization, and PCAP traffic analysis.</p>
                 </div>
             </div>
 
@@ -109,6 +109,7 @@
                 <!-- Filters -->
                 <div class="flex flex-wrap gap-1.5 sm:gap-2 py-2 sm:py-4">
                     <button onclick="filterProjects('All')" class="filter-btn filter-active px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase rounded-full border border-slate-300 transition-all" data-tag="All">All</button>
+                    <button onclick="filterProjects('Rust')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase rounded-full border border-slate-300 transition-all hover:border-black" data-tag="Rust">Rust</button>
                     <button onclick="filterProjects('C')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase rounded-full border border-slate-300 transition-all hover:border-black" data-tag="C">C</button>
                     <button onclick="filterProjects('Python')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase rounded-full border border-slate-300 transition-all hover:border-black" data-tag="Python">Python</button>
                     <button onclick="filterProjects('Networking')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase rounded-full border border-slate-300 transition-all hover:border-black" data-tag="Networking">Networking</button>
@@ -117,7 +118,52 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <!-- Project 1 -->
+                <!-- Rust Project 1: Custom Unix Shell -->
+                <div class="project-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:border-black transition-all group flex flex-col justify-between" data-tags="Rust,Linux">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-1.5 sm:gap-2 flex-wrap">
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] sm:text-xs font-bold rounded-full uppercase">Rust</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] sm:text-xs font-bold rounded-full uppercase">Tokio</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] sm:text-xs font-bold rounded-full uppercase">Linux</span>
+                            </div>
+                            <a href="https://github.com/SZ-io/Rust-Shell" target="_blank" class="p-2 bg-slate-50 rounded-full group-hover:bg-[#ccff00] transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:underline">Custom Unix Shell</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Asynchronous terminal shell built in Rust using Tokio for non-blocking I/O. Implements custom command parsing via TryFrom, filesystem built-ins (cd, ls, cat, mkdir), and external process execution.
+                        </p>
+                    </div>
+                    <a href="#" target="_blank" class="text-xs font-bold uppercase tracking-wider text-black flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        View Repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Rust Project 2: Single-Threaded HTTP/TCP Server -->
+                <div class="project-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:border-black transition-all group flex flex-col justify-between" data-tags="Rust,Networking">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-1.5 sm:gap-2 flex-wrap">
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] sm:text-xs font-bold rounded-full uppercase">Rust</span>
+                                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-[10px] sm:text-xs font-bold rounded-full uppercase">Networking</span>
+                            </div>
+                            <a href="https://github.com/SZ-io/Single-Threaded-TCP-Server-Rust-" target="_blank" class="p-2 bg-slate-50 rounded-full group-hover:bg-[#ccff00] transition-colors">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:underline">Single-Threaded TCP Server</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                            Lightweight TCP network server built from scratch using pure Rust. Implements low-level socket handling, HTTP request parsing, and memory-safe buffer management using Rust's ownership model.
+                        </p>
+                    </div>
+                    <a href="#" target="_blank" class="text-xs font-bold uppercase tracking-wider text-black flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        View Repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Project 3: MNIST Neural Network -->
                 <div class="project-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:border-black transition-all group flex flex-col justify-between" data-tags="Python">
                     <div>
                         <div class="flex justify-between items-start mb-4">
@@ -136,7 +182,7 @@
                     </a>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 4: TCP Multi-User Chat -->
                 <div class="project-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:border-black transition-all group flex flex-col justify-between" data-tags="Python,Networking">
                     <div>
                         <div class="flex justify-between items-start mb-4">
@@ -158,7 +204,7 @@
                     </a>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 5: Linux Shell Interpreter -->
                 <div class="project-card bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:border-black transition-all group flex flex-col justify-between" data-tags="C,Linux">
                     <div>
                         <div class="flex justify-between items-start mb-4">
@@ -192,11 +238,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80">
                     <h3 class="text-base sm:text-lg font-bold mb-2">Languages</h3>
-                    <p class="text-xs sm:text-sm text-slate-600">C, C++, Python, Shell scripting</p>
+                    <p class="text-xs sm:text-sm text-slate-600">Rust, C, C++, Python, Shell scripting</p>
                 </div>
                 <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80">
                     <h3 class="text-base sm:text-lg font-bold mb-2">Systems & Networking</h3>
-                    <p class="text-xs sm:text-sm text-slate-600">Linux / Unix environments, POSIX System Calls, TCP/IP Sockets, Multi-threading</p>
+                    <p class="text-xs sm:text-sm text-slate-600">Tokio Async Runtime, Linux / Unix environments, POSIX System Calls, TCP/IP Sockets, Multi-threading</p>
                 </div>
                 <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80">
                     <h3 class="text-base sm:text-lg font-bold mb-2">Machine Learning & Theory</h3>
@@ -204,7 +250,7 @@
                 </div>
                 <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/80">
                     <h3 class="text-base sm:text-lg font-bold mb-2">Tools & Environments</h3>
-                    <p class="text-xs sm:text-sm text-slate-600">Git, VS Code, terminal workflow, `uv` package manager</p>
+                    <p class="text-xs sm:text-sm text-slate-600">Git, VS Code, Zed, `uv` package manager, Linux CLI</p>
                 </div>
             </div>
         </section>
