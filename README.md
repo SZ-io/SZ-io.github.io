@@ -17,28 +17,35 @@ To run the checks:
 ```sh
 npm ci --ignore-scripts
 npm run check
+npm run test:browser
 ```
+
+The browser tests need Node 22 or later and an installed Chrome. Set `CHROME_PATH` if Chrome isn't found.
 
 ## File map
 
 ```
-index.html                 The page, including the inline SVG icon sprite
+index.html                 The five views, including the inline SVG icon sprite
 404.html                   Not-found page (uses root-absolute paths)
 robots.txt, sitemap.xml    Crawler files
 package.json               Dev tooling only, nothing here ships
 assets/css/tokens.css      Every color, font stack, spacing step, radius and size
 assets/css/base.css        Reset, element defaults, utilities
 assets/css/components.css  Component styles
-assets/js/theme-init.js    Blocking script: sets theme and js class before first paint
+assets/js/theme-init.js    Blocking script: sets theme and js classes before first paint
 assets/js/main.js          Module entry point
 assets/js/theme.js         Theme toggle
-assets/js/nav.js           Mobile menu and current-section highlight
-assets/js/projects.js      Project cards, search and filters
+assets/js/router.js        Hash routing between the views
+assets/js/nav.js           Mobile menu
+assets/js/projects.js      Project rows, search and filters
 assets/data/projects.json  Project data
 assets/data/projects.schema.json  Schema for the project data
+assets/fonts/              Hanken Grotesk (latin, variable) and its license
 assets/img/                Favicon and social preview image
 tools/make-og.mjs          Regenerates og.png with headless Chrome
 tools/contrast-check.mjs   Checks WCAG contrast of the color tokens
+tools/browser-test.mjs     Browser tests for routing, theme, menu and projects
+tools/browser-harness.mjs  Static server and headless Chrome driver for the tests
 .github/                   Workflows, Dependabot and lychee config
 ```
 
@@ -54,7 +61,7 @@ Add an entry to `assets/data/projects.json`:
 | `group` | yes | `selected` or `earlier` |
 | `tags` | yes | Any of Security, Networking, Linux, Python, C, Rust, ML |
 | `status` | no | `planned` shows a "Planned" badge |
-| `repo` | no | GitHub URL. Without one, the card has no link |
+| `repo` | no | GitHub URL. Without one, the row's title isn't a link |
 
 Run `npm run lint:json` to validate it. A new tag must be added to the schema and to `TAG_ORDER` in `assets/js/projects.js`.
 
@@ -85,6 +92,10 @@ Every third-party action is pinned to a full commit SHA. The workflow token is r
 ## Security headers
 
 The Content Security Policy is set with a `<meta>` tag because GitHub Pages can't set response headers. As a result, `frame-ancestors` can't be enforced, since browsers ignore that directive in `<meta>` policies.
+
+## Font license
+
+Hanken Grotesk is used under the SIL Open Font License 1.1. The license text is in `assets/fonts/OFL.txt`. The latin variable file comes from `@fontsource-variable/hanken-grotesk` 5.3.0.
 
 ## Icon license
 

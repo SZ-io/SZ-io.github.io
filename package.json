@@ -7,7 +7,8 @@
     "lint:html": "html-validate index.html 404.html",
     "lint:json": "ajv validate --spec=draft7 -s assets/data/projects.schema.json -d assets/data/projects.json",
     "contrast": "node tools/contrast-check.mjs",
-    "check": "npm run lint:html && npm run lint:json && npm run contrast"
+    "check": "npm run lint:html && npm run lint:json && npm run contrast",
+    "test:browser": "node tools/browser-test.mjs"
   },
   "devDependencies": {
     "ajv-cli": "5.0.0",

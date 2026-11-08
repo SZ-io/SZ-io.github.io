@@ -38,33 +38,45 @@
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    /* Keeps keyboard focus clear of the sticky top bar while Projects scrolls. */
+    scroll-padding-block-start: var(--header-height);
     text-size-adjust: 100%;
   }
 
   body {
     background: var(--bg);
     color: var(--text);
+    display: flex;
+    flex-direction: column;
     font-family: var(--font-sans);
     font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
     line-height: var(--line-height);
+    min-block-size: 100dvb;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-tight);
+    font-weight: var(--font-weight-strong);
+    line-height: var(--line-height-snug);
+    text-wrap: balance;
   }
 
   h2 {
-    font-size: var(--font-size-h2);
-    margin-block-end: var(--space-4);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    letter-spacing: var(--tracking-title);
+    margin-block-end: var(--space-5);
   }
 
   h3 {
-    font-size: var(--font-size-h3);
-    margin-block: var(--space-5) var(--space-3);
+    font-size: var(--font-size-subheading);
+  }
+
+  h4 {
+    font-size: var(--font-size-body);
   }
 
   p {
@@ -72,18 +84,15 @@
   }
 
   a {
-    color: var(--accent);
+    color: var(--accent-text);
     text-underline-offset: var(--underline-offset);
+    transition:
+      color var(--duration-hover),
+      text-decoration-color var(--duration-hover);
   }
 
   a:hover {
     color: var(--text);
-  }
-
-  a,
-  button,
-  input {
-    scroll-margin-block: var(--header-height);
   }
 
   :focus-visible {
@@ -91,7 +100,8 @@
     outline-offset: var(--focus-offset);
   }
 
-  main:focus {
+  /* Headings and main take focus from script only; they aren't controls. */
+  [tabindex="-1"]:focus {
     outline: none;
   }
 }
@@ -102,11 +112,15 @@
   }
 
   .visually-hidden {
-    block-size: var(--border-width);
+    block-size: var(--hairline);
     clip-path: inset(50%);
-    inline-size: var(--border-width);
+    inline-size: var(--hairline);
     overflow: hidden;
     position: absolute;
     white-space: nowrap;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 }

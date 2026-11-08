@@ -23,24 +23,33 @@ if (!chrome) {
 
 const tokens = readFileSync(new URL('../assets/css/tokens.css', import.meta.url), 'utf8');
 const darkValue = (name) => tokens.match(new RegExp(`--${name}:\\s*light-dark\\([^,]+,\\s*([^)]+)\\)`))[1];
+// Embedded because a file:// page can't load a font from another file:// path.
+const font = readFileSync(new URL('../assets/fonts/hanken-grotesk-latin-wght-normal.woff2', import.meta.url)).toString('base64');
 
 const html = `<!doctype html>
 <meta charset="utf-8">
 <style>
+  @font-face {
+    font-family: "Hanken Grotesk";
+    font-weight: 100 900;
+    src: url(data:font/woff2;base64,${font}) format("woff2");
+  }
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
   body {
     background: ${darkValue('bg')};
     color: ${darkValue('text')};
-    font-family: system-ui, sans-serif;
+    font-family: "Hanken Grotesk", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 96px;
     box-sizing: border-box;
   }
-  h1 { font-size: 88px; line-height: 1.1; margin: 0 0 24px; font-weight: 600; }
-  p { font-size: 40px; line-height: 1.3; margin: 0; color: ${darkValue('muted')}; }
+  i { background: ${darkValue('accent')}; display: block; width: 40px; height: 40px; margin-bottom: 48px; }
+  h1 { font-size: 128px; line-height: 1; letter-spacing: -0.035em; margin: 0 0 32px; font-weight: 800; }
+  p { font-size: 40px; line-height: 1.3; margin: 0; color: ${darkValue('text-soft')}; max-width: 860px; }
 </style>
+<i></i>
 <h1>${NAME}</h1>
 <p>${SUBLINE}</p>`;
 
@@ -54,6 +63,7 @@ try {
     '--hide-scrollbars',
     '--force-device-scale-factor=1',
     '--window-size=1200,630',
+    '--virtual-time-budget=3000',
     `--user-data-dir=${join(directory, 'profile')}`,
     `--screenshot=${fileURLToPath(new URL('../assets/img/og.png', import.meta.url))}`,
     pathToFileURL(page).href,

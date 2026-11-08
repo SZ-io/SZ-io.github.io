@@ -6,19 +6,21 @@ import { readFile } from 'node:fs/promises';
 const TEXT_MIN = 4.5;
 const UI_MIN = 3;
 
+// --rule is exempt: it only draws decorative dividers, which carry no meaning.
 const PAIRS = [
   ['text', 'bg', TEXT_MIN, 'body text'],
-  ['text', 'surface', TEXT_MIN, 'card text'],
+  ['text', 'surface', TEXT_MIN, 'project title on hovered row'],
+  ['text-soft', 'bg', TEXT_MIN, 'summaries, sub-line, messages'],
+  ['text-soft', 'surface', TEXT_MIN, 'summary on hovered row'],
   ['muted', 'bg', TEXT_MIN, 'muted text'],
-  ['muted', 'surface', TEXT_MIN, 'muted text on card'],
-  ['accent', 'bg', TEXT_MIN, 'link text'],
-  ['accent', 'surface', TEXT_MIN, 'link text on card'],
-  ['on-accent', 'accent', TEXT_MIN, 'primary button, active chip'],
-  ['bg', 'text', TEXT_MIN, 'primary button hover'],
-  ['line', 'bg', UI_MIN, 'control boundary'],
-  ['line', 'surface', UI_MIN, 'card boundary'],
-  ['accent', 'bg', UI_MIN, 'focus ring'],
-  ['accent', 'surface', UI_MIN, 'focus ring on card'],
+  ['muted', 'surface', TEXT_MIN, 'tags on hovered row'],
+  ['accent-text', 'bg', TEXT_MIN, 'link text'],
+  ['accent-text', 'surface', TEXT_MIN, 'link text on hovered row'],
+  ['on-fill', 'fill', TEXT_MIN, 'primary button'],
+  ['on-fill', 'fill-hover', TEXT_MIN, 'primary button hover'],
+  ['control-border', 'bg', UI_MIN, 'search input border'],
+  ['accent', 'bg', UI_MIN, 'focus ring, active underline'],
+  ['accent', 'surface', UI_MIN, 'focus ring on hovered row'],
 ];
 
 function parseTokens(css) {
@@ -61,7 +63,7 @@ for (const theme of ['light', 'dark']) {
     // Compare the unrounded ratio: 4.499 must fail even though it prints as 4.50.
     const passed = ratio >= minimum;
     failures += passed ? 0 : 1;
-    const pair = `--${foreground} on --${background}`.padEnd(26);
+    const pair = `--${foreground} on --${background}`.padEnd(32);
     console.log(`  ${passed ? 'ok  ' : 'FAIL'}  ${pair} ${ratio.toFixed(2).padStart(5)}:1  (min ${minimum})  ${use}`);
   }
 }
