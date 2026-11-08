@@ -1,0 +1,126 @@
+/* Reset, element defaults and utilities. Colors and sizes come from tokens.css. */
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      scroll-behavior: auto !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Keeps keyboard focus clear of the sticky top bar while Projects scrolls. */
+    scroll-padding-block-start: var(--header-height);
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height);
+    min-block-size: 100dvb;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: var(--font-weight-strong);
+    line-height: var(--line-height-snug);
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    letter-spacing: var(--tracking-title);
+    margin-block-end: var(--space-5);
+  }
+
+  h3 {
+    font-size: var(--font-size-subheading);
+  }
+
+  h4 {
+    font-size: var(--font-size-body);
+  }
+
+  p {
+    max-width: var(--measure);
+  }
+
+  a {
+    color: var(--accent-text);
+    text-underline-offset: var(--underline-offset);
+    transition:
+      color var(--duration-hover),
+      text-decoration-color var(--duration-hover);
+  }
+
+  a:hover {
+    color: var(--text);
+  }
+
+  :focus-visible {
+    outline: var(--focus-width) solid var(--accent);
+    outline-offset: var(--focus-offset);
+  }
+
+  /* Headings and main take focus from script only; they aren't controls. */
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+}
+
+@layer utilities {
+  [hidden] {
+    display: none !important;
+  }
+
+  .visually-hidden {
+    block-size: var(--hairline);
+    clip-path: inset(50%);
+    inline-size: var(--hairline);
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}

@@ -1,0 +1,106 @@
+/* Design tokens. Restyling starts here.
+   Each color is light-dark(light value, dark value). tools/contrast-check.mjs
+   reads these values, so keep that format. */
+
+@layer reset, tokens, base, components, utilities;
+
+@font-face {
+  font-display: swap;
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("../fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2");
+}
+
+@layer tokens {
+  :root {
+    /* Dark is the default, whatever the system setting. */
+    color-scheme: dark;
+
+    --bg: light-dark(#FFFFFF, #0F1113);
+    --surface: light-dark(#F4F5F6, #16191C);
+    --text: light-dark(#16191C, #ECE9E2);
+    --text-soft: light-dark(#3C434B, #B9BEC4);
+    --muted: light-dark(#565E67, #8D959D);
+    --rule: light-dark(#E2E5E9, #23272B);
+    --control-border: light-dark(#7B848D, #6A737C);
+    --accent: light-dark(#C2282E, #E5484D);
+    --accent-text: light-dark(#B02329, #F07077);
+    --fill: light-dark(#C2282E, #C93A3F);
+    --fill-hover: light-dark(#A32025, #B03338);
+    --on-fill: light-dark(#FFFFFF, #FFFFFF);
+    --pulse: light-dark(#16191C, #ECE9E2);
+
+    --font-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --font-size-small: 0.875rem;
+    --font-size-body: 1.0625rem;
+    --font-size-subheading: 1rem;
+    --font-size-lead: clamp(1.25rem, 1.05rem + 0.9vw, 1.625rem);
+    --font-size-title: clamp(1.75rem, 1.6rem + 0.6vw, 2rem);
+    --font-size-contact: clamp(1.5rem, 6.5vw, 2.75rem);
+    --font-size-display: clamp(3rem, 8vw, 6rem);
+
+    --line-height: 1.6;
+    --line-height-snug: 1.3;
+    --line-height-display: 1;
+
+    --font-weight-body: 400;
+    --font-weight-label: 500;
+    --font-weight-strong: 600;
+    --font-weight-title: 700;
+    --font-weight-display: 800;
+
+    --tracking-display: -0.035em;
+    --tracking-title: -0.02em;
+    --display-optical-inset: -0.035em;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: clamp(3rem, 2rem + 4vh, 4.5rem);
+
+    --radius: 5px;
+    --radius-dot: 50%;
+    --hairline: 1px;
+    --underline-width: 2px;
+    --focus-width: 2px;
+    --focus-offset: 2px;
+    --underline-offset: 0.2em;
+    --underline-offset-control: 0.45em;
+
+    --window-max: 60rem;
+    --reading-max: 44rem;
+    --measure: 66ch;
+    --measure-lead: 34ch;
+    --gutter: clamp(1rem, 4vw, 2rem);
+    --touch-target: 2.75rem;
+    --icon-size: 1.25rem;
+    --icon-size-small: 1.125rem;
+    --header-height: 4rem;
+    --mark-size: 0.75rem;
+    --dot-size: 0.5rem;
+    --skills-term-width: 11rem;
+
+    --duration-hover: 130ms;
+    --duration-window: 150ms;
+    --duration-pulse: 2.4s;
+    --pulse-scale: 2.75;
+    --pulse-opacity: 0.6;
+
+    --layer-header: 10;
+    --layer-skip-link: 20;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+}

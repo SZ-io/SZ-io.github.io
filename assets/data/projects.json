@@ -1,0 +1,50 @@
+[
+  {
+    "id": "honeypot-ai",
+    "title": "Honeypot with AI agents",
+    "summary": "Planned final-year project: a honeypot system with AI agents for cyber defense.",
+    "group": "selected",
+    "status": "planned",
+    "tags": ["Security"]
+  },
+  {
+    "id": "linux-shell-c",
+    "title": "Linux Shell Interpreter",
+    "summary": "Functional command-line interpreter written in C. Implements Unix process management, low-level system calls (fork, exec), and PATH resolution.",
+    "group": "selected",
+    "tags": ["C", "Linux"],
+    "repo": "https://github.com/SZ-io/Linux-Shell-Implementation"
+  },
+  {
+    "id": "tcp-chat",
+    "title": "TCP Multi-User Chat",
+    "summary": "Real-time chat application exploring Python sockets, a multi-threaded server architecture, and a CustomTkinter graphical interface.",
+    "group": "selected",
+    "tags": ["Python", "Networking"],
+    "repo": "https://github.com/sz-io/TCP-Based-Multi-User-Chat-Project"
+  },
+  {
+    "id": "rust-shell",
+    "title": "Custom Unix Shell",
+    "summary": "Asynchronous terminal shell built in Rust using Tokio for non-blocking I/O. Implements custom command parsing via TryFrom, filesystem built-ins (cd, ls, cat, mkdir), and external process execution.",
+    "group": "earlier",
+    "tags": ["Rust", "Linux"],
+    "repo": "https://github.com/SZ-io/Rust-Shell"
+  },
+  {
+    "id": "rust-tcp-server",
+    "title": "Multi-Threaded TCP Server",
+    "summary": "Lightweight TCP server built from scratch in Rust. Implements low-level socket handling, HTTP request parsing, and memory-safe buffer management using Rust's ownership model.",
+    "group": "earlier",
+    "tags": ["Rust", "Networking"],
+    "repo": "https://github.com/SZ-io/Multi-Threaded-TCP-Server-Rust-"
+  },
+  {
+    "id": "mnist-numpy",
+    "title": "MNIST Neural Network",
+    "summary": "Digit recognition neural network implemented from scratch with Python and NumPy, focused on backpropagation and gradient descent without ML frameworks.",
+    "group": "earlier",
+    "tags": ["Python", "ML"],
+    "repo": "https://github.com/SZ-io/mnist-numpy-neural-network"
+  }
+]

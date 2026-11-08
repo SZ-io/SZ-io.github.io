@@ -1,409 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matan Elgrissi | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        void: '#0B0E11',
-                        panel: '#12161B',
-                        panel2: '#171D24',
-                        wire: '#262D35',
-                        bone: '#EDEAE1',
-                        dim: '#838C96',
-                        copper: '#D9843C',
-                        ack: '#4FD1A5',
-                    },
-                    fontFamily: {
-                        display: ['"Space Grotesk"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    },
-                },
-            },
-        }
-    </script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .nav-active { color: #D9843C !important; }
-        .filter-active { background-color: #D9843C; color: #0B0E11 !important; border-color: #D9843C !important; }
-        .hover\:text-black:hover { color: #D9843C !important; }
-        :focus-visible { outline: 2px solid #D9843C; outline-offset: 2px; }
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Matan Elgrissi: Computer Science student</title>
+    <meta name="description" content="Matan Elgrissi: Computer Science student at HIT focused on cybersecurity and DevSecOps. Projects in Linux, networking and systems programming.">
+    <link rel="canonical" href="https://sz-io.github.io/">
 
-        @keyframes rise-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .tab-content:not(.hidden) { animation: rise-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        .project-card:not(.hidden) { animation: rise-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        .focus-grid > div { animation: rise-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        .project-card:nth-of-type(1) { animation-delay: 0ms; }
-        .project-card:nth-of-type(2) { animation-delay: 60ms; }
-        .project-card:nth-of-type(3) { animation-delay: 120ms; }
-        .project-card:nth-of-type(4) { animation-delay: 180ms; }
-        .project-card:nth-of-type(5) { animation-delay: 240ms; }
-        .focus-grid > div:nth-child(1) { animation-delay: 0ms; }
-        .focus-grid > div:nth-child(2) { animation-delay: 80ms; }
-        .focus-grid > div:nth-child(3) { animation-delay: 160ms; }
+    <meta property="og:title" content="Matan Elgrissi">
+    <meta property="og:description" content="Matan Elgrissi: Computer Science student at HIT focused on cybersecurity and DevSecOps. Projects in Linux, networking and systems programming.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sz-io.github.io/">
+    <meta property="og:image" content="https://sz-io.github.io/assets/img/og.png">
+    <meta property="og:image:alt" content="Matan Elgrissi. Computer Science student focused on cybersecurity and DevSecOps.">
+    <meta name="twitter:card" content="summary_large_image">
 
-        @media (prefers-reduced-motion: reduce) {
-            .animate-pulse, .animate-ping { animation: none; }
-            .tab-content, .project-card, .focus-grid > div { animation: none; }
-            #nav-indicator { transition: none; }
-        }
-    </style>
-</head>
-<body class="bg-void text-bone min-h-screen flex flex-col selection:bg-copper/30 selection:text-bone">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <meta name="theme-color" content="#0F1113">
 
-    <!-- Top Bar -->
-    <header class="fixed top-0 inset-x-0 z-50 bg-void/95 backdrop-blur-sm border-b border-wire">
-        <nav class="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+    <script src="assets/js/theme-init.js"></script>
+    <link rel="preload" href="assets/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <script type="module" src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" hidden aria-hidden="true">
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m6.34 17.66-1.41 1.41"/>
+        <path d="m19.07 4.93-1.41 1.41"/>
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 5h16"/>
+        <path d="M4 12h16"/>
+        <path d="M4 19h16"/>
+      </symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24">
+        <path d="M18 6 6 18"/>
+        <path d="m6 6 12 12"/>
+      </symbol>
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+        <path d="M9 18c-4.51 2-5-2-7-2"/>
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+        <rect width="4" height="12" x="2" y="9"/>
+        <circle cx="4" cy="4" r="2"/>
+      </symbol>
+    </svg>
 
-            <!-- Logo -->
-            <a href="#" onclick="switchTab('home')" class="flex items-center gap-2 shrink-0">
-                <span class="text-copper text-xs leading-none">■</span>
-                <span class="font-mono font-semibold text-sm tracking-tight text-bone">ELGRISSI</span>
-            </a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-            <!-- Tabs -->
-            <div class="relative flex items-center gap-1 sm:gap-2 text-[11px] sm:text-xs font-mono font-semibold text-dim uppercase tracking-wide overflow-x-auto no-scrollbar py-0.5">
-                <span id="nav-indicator" class="absolute bottom-0 h-0.5 bg-copper transition-all duration-300 ease-out" style="left:0; width:0;"></span>
-                <button id="nav-home" onclick="switchTab('home')" class="px-2 sm:px-3 py-1.5 transition-colors nav-active shrink-0">Home</button>
-                <button id="nav-projects" onclick="switchTab('projects')" class="px-2 sm:px-3 py-1.5 transition-colors hover:text-black shrink-0">Projects</button>
-                <button id="nav-stack" onclick="switchTab('stack')" class="px-2 sm:px-3 py-1.5 transition-colors hover:text-black shrink-0">Stack</button>
-                <button id="nav-contact" onclick="switchTab('contact')" class="px-2 sm:px-3 py-1.5 transition-colors hover:text-black shrink-0">Contact</button>
-            </div>
-
-            <!-- CTA Button -->
-            <button onclick="switchTab('contact')" class="hidden md:inline-flex bg-copper text-void text-xs sm:text-sm font-bold px-4 py-2 rounded-md hover:bg-bone transition-colors shrink-0">
-                Get in Touch
-            </button>
-        </nav>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main">
+        <a class="brand" href="#home"><span class="brand__mark" aria-hidden="true"></span>Matan Elgrissi</a>
+        <button class="site-nav__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+          <svg class="icon" aria-hidden="true"><use id="nav-toggle-icon" href="#icon-menu"></use></svg>
+          Menu
+        </button>
+        <div class="site-nav__panel" id="nav-panel">
+          <ul class="site-nav__list" id="nav-list">
+            <li><a class="site-nav__link" href="#home">Home</a></li>
+            <li><a class="site-nav__link" href="#about">About</a></li>
+            <li><a class="site-nav__link" href="#projects">Projects</a></li>
+            <li><a class="site-nav__link" href="#skills">Skills</a></li>
+            <li><a class="site-nav__link" href="#contact">Contact</a></li>
+          </ul>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme">
+            <svg class="icon theme-toggle__icon--sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
+            <svg class="icon theme-toggle__icon--moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
+          </button>
+        </div>
+      </nav>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-1 pt-20 sm:pt-24 pb-16 px-4 sm:px-6 max-w-5xl mx-auto w-full">
+    <main class="page" id="main" tabindex="-1">
+      <section class="view view--home" id="home" aria-labelledby="home-title">
+        <div class="hero">
+          <p class="status-line"><span class="status-line__dot" aria-hidden="true"></span>Open to student and junior roles</p>
+          <h1 class="hero__name" id="home-title" tabindex="-1">Matan Elgrissi</h1>
+          <p class="hero__subline">Computer Science student focused on cybersecurity and DevSecOps.</p>
+          <p class="hero__actions">
+            <a class="button" href="#projects">View projects</a>
+            <a class="text-link" href="#contact">Contact</a>
+            <!-- TODO: add "Download CV" button when assets/cv/ PDF exists -->
+          </p>
+        </div>
+        <dl class="key-facts">
+          <div class="key-facts__item">
+            <dt class="key-facts__term">Role</dt>
+            <dd>Computer Science student, HIT (B.Sc., expected 2027)</dd>
+          </div>
+          <div class="key-facts__item">
+            <dt class="key-facts__term">Focus</dt>
+            <dd>Cybersecurity, DevSecOps</dd>
+          </div>
+          <div class="key-facts__item">
+            <dt class="key-facts__term">Works with</dt>
+            <dd>Python, C, Linux, networking, Docker (basic)</dd>
+          </div>
+        </dl>
+      </section>
 
-        <!-- HOME TAB -->
-        <section id="sec-home" class="tab-content transition-opacity duration-300">
-            <div class="mb-8 sm:mb-12">
-                <p class="text-[11px] sm:text-xs font-mono font-medium tracking-widest text-dim uppercase mb-3 sm:mb-4 flex items-center gap-2">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ack opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-ack"></span>
-                    </span>
-                    STATUS 200 &middot; AVAILABLE FOR HIRE
-                </p>
-                <h1 class="text-4xl sm:text-7xl lg:text-8xl font-display font-bold tracking-tight uppercase leading-none mb-4 sm:mb-6 text-bone">
-                    MATAN ELGRISSI
-                </h1>
-                <p class="text-xs sm:text-base font-mono font-medium text-dim uppercase tracking-wide">
-                    Computer Science Student &amp; Systems/ML Developer
-                </p>
-            </div>
+      <section class="view" id="about" aria-labelledby="about-title">
+        <h2 id="about-title" tabindex="-1">About</h2>
+        <!-- TODO: author review -->
+        <p>I'm a third-year Computer Science student at HIT (B.Sc., expected 2027), looking for student and junior roles in cybersecurity and DevSecOps. My work so far is hands-on Linux, networking and systems programming: a shell interpreter in C and TCP networking projects in Python and Rust. I use Docker and CI/CD pipelines at a basic level. My final-year project, a honeypot system with AI agents for cyber defense, is planned.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-8 py-6 sm:py-8 border-y border-wire mb-8 sm:mb-12">
-                <div class="md:col-span-4">
-                    <span class="text-[10px] sm:text-xs font-mono font-semibold text-dim uppercase tracking-widest">ABOUT ME</span>
-                </div>
-                <div class="md:col-span-8">
-                    <p class="text-base sm:text-xl font-medium text-bone/85 leading-relaxed">
-                        Computer Science student focused on Systems Programming with Rust &amp; C, alongside Machine Learning foundations in Python. Passionate about OS-level execution, concurrency, asynchronous systems, and building ML models from scratch.
-                    </p>
-                </div>
-            </div>
+        <!-- TODO: Experience section intentionally omitted -->
 
-            <!-- Focus Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 focus-grid">
-                <div class="bg-panel p-5 sm:p-6 rounded-lg border border-wire">
-                    <span class="text-[10px] font-mono font-semibold text-copper tracking-wider">[SYS]</span>
-                    <h3 class="text-sm sm:text-base font-display font-bold uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3 text-bone">Systems &amp; Rust</h3>
-                    <p class="text-xs sm:text-sm text-dim leading-relaxed">Developing asynchronous terminal shells, Tokio process execution, and memory-safe TCP network servers in Rust &amp; C.</p>
-                </div>
-                <div class="bg-panel p-5 sm:p-6 rounded-lg border border-wire">
-                    <span class="text-[10px] font-mono font-semibold text-copper tracking-wider">[ML]</span>
-                    <h3 class="text-sm sm:text-base font-display font-bold uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3 text-bone">Machine Learning</h3>
-                    <p class="text-xs sm:text-sm text-dim leading-relaxed">Building digit recognition NNs, custom backpropagation, and hyperparameter tuning from scratch using Python &amp; NumPy.</p>
-                </div>
-                <div class="bg-panel p-5 sm:p-6 rounded-lg border border-wire">
-                    <span class="text-[10px] font-mono font-semibold text-copper tracking-wider">[NET]</span>
-                    <h3 class="text-sm sm:text-base font-display font-bold uppercase tracking-tight mt-1 sm:mt-2 mb-2 sm:mb-3 text-bone">Network Architecture</h3>
-                    <p class="text-xs sm:text-sm text-dim leading-relaxed">Implementing socket-level networking protocols, thread/process synchronization, and PCAP traffic analysis.</p>
-                </div>
-            </div>
-
-            <div class="flex justify-start">
-                <button onclick="switchTab('projects')" class="bg-copper text-void text-xs sm:text-sm font-bold px-5 py-3 rounded-md hover:bg-bone transition-colors flex items-center gap-2">
-                    VIEW PROJECTS <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
-            </div>
+        <section class="about__education" id="education" aria-labelledby="education-title">
+          <h3 class="about__subheading" id="education-title">Education</h3>
+          <!-- TODO: confirm start year -->
+          <p class="about__years tabular">2024 – 2027 (expected)</p>
+          <p>B.Sc. Computer Science, HIT</p>
+          <!-- TODO: relevant courses -->
         </section>
+      </section>
 
-        <!-- PROJECTS TAB -->
-        <section id="sec-projects" class="tab-content hidden transition-opacity duration-300">
-            <div class="mb-6 sm:mb-8">
-                <p class="text-[11px] sm:text-xs font-mono font-medium tracking-widest text-dim uppercase mb-2">
-                    <span class="text-copper">GET</span> /projects <span class="normal-case text-dim/70">HTTP/1.1</span>
-                </p>
-                <h2 class="text-3xl sm:text-6xl font-display font-bold tracking-tight uppercase mb-4 sm:mb-6 text-bone">PROJECTS</h2>
+      <section class="view" id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title" tabindex="-1">Projects</h2>
 
-                <!-- Search Input -->
-                <div class="relative w-full max-w-xs mb-4 flex justify-center">
-                    <input type="text" placeholder="Search projects..." oninput="searchProjects(this.value)" class="bg-panel border border-wire rounded-md px-4 py-1.5 text-xs font-mono text-bone placeholder-dim focus:outline-none focus:border-copper w-full">
-                </div>
+        <noscript>
+          <p>The project list needs JavaScript. <a href="https://github.com/SZ-io" rel="noopener noreferrer">See my projects on GitHub</a>.</p>
+        </noscript>
 
-                <!-- Filters -->
-                <div class="flex flex-wrap gap-1.5 sm:gap-2 py-2 sm:py-4">
-                    <button onclick="filterProjects('All')" class="filter-btn filter-active px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-mono font-semibold uppercase rounded-full border border-wire transition-all" data-tag="All">All</button>
-                    <button onclick="filterProjects('Rust')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-mono font-semibold uppercase rounded-full border border-wire text-dim transition-all hover:border-copper hover:text-bone" data-tag="Rust">Rust</button>
-                    <button onclick="filterProjects('C')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-mono font-semibold uppercase rounded-full border border-wire text-dim transition-all hover:border-copper hover:text-bone" data-tag="C">C</button>
-                    <button onclick="filterProjects('Python')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-mono font-semibold uppercase rounded-full border border-wire text-dim transition-all hover:border-copper hover:text-bone" data-tag="Python">Python</button>
-                    <button onclick="filterProjects('Networking')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-mono font-semibold uppercase rounded-full border border-wire text-dim transition-all hover:border-copper hover:text-bone" data-tag="Networking">Networking</button>
-                    <button onclick="filterProjects('Linux')" class="filter-btn px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-mono font-semibold uppercase rounded-full border border-wire text-dim transition-all hover:border-copper hover:text-bone" data-tag="Linux">Linux</button>
-                </div>
-            </div>
+        <div class="projects__controls" id="project-controls" role="search" hidden>
+          <label class="projects__label" for="project-search">Search projects</label>
+          <input class="projects__search" id="project-search" type="search" autocomplete="off">
+          <div class="projects__filters" id="project-filters" role="group" aria-label="Filter by tag"></div>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <!-- Rust Project 1: Custom Unix Shell -->
-                <div class="project-card bg-panel p-6 sm:p-8 rounded-lg border border-wire hover:border-copper hover:-translate-y-1 transition-all group flex flex-col justify-between" data-tags="Rust,Linux">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex gap-1.5 sm:gap-2 flex-wrap">
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Rust</span>
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Tokio</span>
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Linux</span>
-                            </div>
-                            <a href="https://github.com/SZ-io/Rust-Shell" target="_blank" class="p-2 bg-panel2 text-bone rounded-md group-hover:bg-copper group-hover:text-void transition-colors">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-display font-bold mb-2 sm:mb-3 text-bone group-hover:text-copper transition-colors">Custom Unix Shell</h3>
-                        <p class="text-xs sm:text-sm text-dim leading-relaxed mb-6">
-                            Asynchronous terminal shell built in Rust using Tokio for non-blocking I/O. Implements custom command parsing via TryFrom, filesystem built-ins (cd, ls, cat, mkdir), and external process execution.
-                        </p>
-                    </div>
-                    <a href="https://github.com/SZ-io/Rust-Shell" target="_blank" class="text-xs font-mono font-semibold uppercase tracking-wider text-bone flex items-center gap-1 group-hover:text-copper group-hover:translate-x-1 transition-transform">
-                        View Repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
+        <p class="projects__status" id="project-status" role="status" aria-live="polite"></p>
 
-                <!-- Rust Project 2: Multi-Threaded HTTP/TCP Server -->
-                <div class="project-card bg-panel p-6 sm:p-8 rounded-lg border border-wire hover:border-copper hover:-translate-y-1 transition-all group flex flex-col justify-between" data-tags="Rust,Networking">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex gap-1.5 sm:gap-2 flex-wrap">
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Rust</span>
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Networking</span>
-                            </div>
-                            <a href="https://github.com/SZ-io/Multi-Threaded-TCP-Server-Rust-" target="_blank" class="p-2 bg-panel2 text-bone rounded-md group-hover:bg-copper group-hover:text-void transition-colors">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-display font-bold mb-2 sm:mb-3 text-bone group-hover:text-copper transition-colors">Multi-Threaded TCP Server</h3>
-                        <p class="text-xs sm:text-sm text-dim leading-relaxed mb-6">
-                            Lightweight TCP network server built from scratch using pure Rust. Implements low-level socket handling, HTTP request parsing, and memory-safe buffer management using Rust's ownership model.
-                        </p>
-                    </div>
-                    <a href="https://github.com/SZ-io/Multi-Threaded-TCP-Server-Rust-" target="_blank" class="text-xs font-mono font-semibold uppercase tracking-wider text-bone flex items-center gap-1 group-hover:text-copper group-hover:translate-x-1 transition-transform">
-                        View Repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
+        <h3 class="projects__heading" id="projects-selected-title" hidden>Selected</h3>
+        <ul class="projects__list" id="projects-selected" aria-labelledby="projects-selected-title" hidden></ul>
 
-                <!-- Project 3: MNIST Neural Network -->
-                <div class="project-card bg-panel p-6 sm:p-8 rounded-lg border border-wire hover:border-copper hover:-translate-y-1 transition-all group flex flex-col justify-between" data-tags="Python">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Python</span>
-                            <a href="https://github.com/SZ-io/mnist-numpy-neural-network" target="_blank" class="p-2 bg-panel2 text-bone rounded-md group-hover:bg-copper group-hover:text-void transition-colors">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-display font-bold mb-2 sm:mb-3 text-bone group-hover:text-copper transition-colors">MNIST Neural Network</h3>
-                        <p class="text-xs sm:text-sm text-dim leading-relaxed mb-6">
-                            Digit recognition neural network implemented from scratch using Python and NumPy. Focused on understanding backpropagation and gradient descent without external ML frameworks.
-                        </p>
-                    </div>
-                    <a href="https://github.com/SZ-io/mnist-numpy-neural-network" target="_blank" class="text-xs font-mono font-semibold uppercase tracking-wider text-bone flex items-center gap-1 group-hover:text-copper group-hover:translate-x-1 transition-transform">
-                        View Repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
+        <h3 class="projects__heading" id="projects-earlier-title" hidden>Earlier work</h3>
+        <ul class="projects__list" id="projects-earlier" aria-labelledby="projects-earlier-title" hidden></ul>
+      </section>
 
-                <!-- Project 4: TCP Multi-User Chat -->
-                <div class="project-card bg-panel p-6 sm:p-8 rounded-lg border border-wire hover:border-copper hover:-translate-y-1 transition-all group flex flex-col justify-between" data-tags="Python,Networking">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex gap-1.5 sm:gap-2">
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Python</span>
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Networking</span>
-                            </div>
-                            <a href="https://github.com/sz-io/TCP-Based-Multi-User-Chat-Project" target="_blank" class="p-2 bg-panel2 text-bone rounded-md group-hover:bg-copper group-hover:text-void transition-colors">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-display font-bold mb-2 sm:mb-3 text-bone group-hover:text-copper transition-colors">TCP Multi-User Chat</h3>
-                        <p class="text-xs sm:text-sm text-dim leading-relaxed mb-6">
-                            Real-time chat application exploring Python Sockets, multi-threading server architecture, and a modern CustomTkinter graphical interface.
-                        </p>
-                    </div>
-                    <a href="https://github.com/sz-io/TCP-Based-Multi-User-Chat-Project" target="_blank" class="text-xs font-mono font-semibold uppercase tracking-wider text-bone flex items-center gap-1 group-hover:text-copper group-hover:translate-x-1 transition-transform">
-                        View Repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
+      <section class="view" id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title" tabindex="-1">Skills</h2>
+        <!-- TODO: Security skills, once confirmed -->
+        <dl>
+          <div class="skills__row">
+            <dt class="skills__term">Languages</dt>
+            <dd>Python, C, C++, Shell scripting</dd>
+          </div>
+          <div class="skills__row">
+            <dt class="skills__term">Linux and networking</dt>
+            <dd>Linux/Unix, POSIX system calls, TCP/IP sockets, Multi-threading, PCAP analysis</dd>
+          </div>
+          <div class="skills__row">
+            <dt class="skills__term">DevOps tooling</dt>
+            <dd>Git, Docker (basic), CI/CD (basic), VS Code, Zed, uv</dd>
+          </div>
+          <div class="skills__row">
+            <dt class="skills__term">Earlier work</dt>
+            <dd>Rust (Tokio), NumPy, Neural-network backpropagation</dd>
+          </div>
+        </dl>
+      </section>
 
-                <!-- Project 5: Linux Shell Interpreter -->
-                <div class="project-card bg-panel p-6 sm:p-8 rounded-lg border border-wire hover:border-copper hover:-translate-y-1 transition-all group flex flex-col justify-between" data-tags="C,Linux">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex gap-1.5 sm:gap-2">
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">C</span>
-                                <span class="px-2.5 py-1 bg-panel2 text-dim text-[10px] sm:text-xs font-mono font-semibold rounded-full uppercase border border-wire">Linux</span>
-                            </div>
-                            <a href="https://github.com/SZ-io/Linux-Shell-Implementation" target="_blank" class="p-2 bg-panel2 text-bone rounded-md group-hover:bg-copper group-hover:text-void transition-colors">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-display font-bold mb-2 sm:mb-3 text-bone group-hover:text-copper transition-colors">Linux Shell Interpreter</h3>
-                        <p class="text-xs sm:text-sm text-dim leading-relaxed mb-6">
-                            Functional command-line interpreter written in C. Implements Unix process management, low-level system calls (fork, exec), and PATH resolution.
-                        </p>
-                    </div>
-                    <a href="https://github.com/SZ-io/Linux-Shell-Implementation" target="_blank" class="text-xs font-mono font-semibold uppercase tracking-wider text-bone flex items-center gap-1 group-hover:text-copper group-hover:translate-x-1 transition-transform">
-                        View Repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- STACK TAB -->
-        <section id="sec-stack" class="tab-content hidden transition-opacity duration-300">
-            <div class="mb-6 sm:mb-8">
-                <p class="text-[11px] sm:text-xs font-mono font-medium tracking-widest text-dim uppercase mb-2">
-                    <span class="text-copper">GET</span> /stack <span class="normal-case text-dim/70">HTTP/1.1</span>
-                </p>
-                <h2 class="text-3xl sm:text-6xl font-display font-bold tracking-tight uppercase mb-4 sm:mb-6 text-bone">EXPERIENCE</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div class="bg-panel p-5 sm:p-6 rounded-lg border border-wire">
-                    <h3 class="text-base sm:text-lg font-display font-bold mb-2 text-bone">Languages</h3>
-                    <p class="text-xs sm:text-sm font-mono text-dim">Rust, C, C++, Python, Shell scripting</p>
-                </div>
-                <div class="bg-panel p-5 sm:p-6 rounded-lg border border-wire">
-                    <h3 class="text-base sm:text-lg font-display font-bold mb-2 text-bone">Systems &amp; Networking</h3>
-                    <p class="text-xs sm:text-sm font-mono text-dim">Tokio Async Runtime, Linux / Unix environments, POSIX System Calls, TCP/IP Sockets, Multi-threading</p>
-                </div>
-                <div class="bg-panel p-5 sm:p-6 rounded-lg border border-wire">
-                    <h3 class="text-base sm:text-lg font-display font-bold mb-2 text-bone">Machine Learning &amp; Theory</h3>
-                    <p class="text-xs sm:text-sm font-mono text-dim">Neural Network Backpropagation, Gradient Descent, NumPy, Machine Learning Foundations</p>
-                </div>
-                <div class="bg-panel p-5 sm:p-6 rounded-lg border border-wire">
-                    <h3 class="text-base sm:text-lg font-display font-bold mb-2 text-bone">Tools &amp; Environments</h3>
-                    <p class="text-xs sm:text-sm font-mono text-dim">Git, VS Code, Zed, `uv` package manager, Linux CLI</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT TAB -->
-        <section id="sec-contact" class="tab-content hidden transition-opacity duration-300">
-            <div class="mb-6 sm:mb-8">
-                <p class="text-[11px] sm:text-xs font-mono font-medium tracking-widest text-dim uppercase mb-2">
-                    <span class="text-copper">GET</span> /contact <span class="normal-case text-dim/70">HTTP/1.1</span>
-                </p>
-                <h2 class="text-3xl sm:text-6xl font-display font-bold tracking-tight uppercase mb-4 sm:mb-6 text-bone">GET IN TOUCH</h2>
-            </div>
-
-            <div class="bg-panel p-6 sm:p-12 rounded-lg border border-wire space-y-6 sm:space-y-8">
-                <div>
-                    <p class="text-[10px] sm:text-xs font-mono font-semibold text-dim uppercase tracking-wider mb-1">EMAIL</p>
-                    <a href="mailto:elgrissi2000@gmail.com" class="text-lg sm:text-3xl font-display font-bold text-bone hover:text-copper break-all transition-colors">elgrissi2000@gmail.com</a>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-4 sm:pt-6 border-t border-wire">
-                    <div>
-                        <p class="text-[10px] sm:text-xs font-mono font-semibold text-dim uppercase tracking-wider mb-1">GITHUB</p>
-                        <a href="https://github.com/SZ-io" target="_blank" class="text-sm sm:text-lg font-semibold text-bone hover:text-copper flex items-center gap-2 transition-colors">
-                            github.com/SZ-io <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <p class="text-[10px] sm:text-xs font-mono font-semibold text-dim uppercase tracking-wider mb-1">LINKEDIN</p>
-                        <a href="https://www.linkedin.com/in/matan-elgrissi-8b07bb346/" target="_blank" class="text-sm sm:text-lg font-semibold text-bone hover:text-copper flex items-center gap-2 transition-colors">
-                            linkedin.com/in/matan-elgrissi <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+      <section class="view" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" tabindex="-1">Contact</h2>
+        <a class="contact__email" href="mailto:elgrissi2000@gmail.com">elgrissi2000@gmail.com</a>
+        <ul class="contact__links">
+          <li>
+            <a class="contact__link" href="https://github.com/SZ-io" rel="noopener noreferrer">
+              <svg class="icon icon--small" aria-hidden="true"><use href="#icon-github"></use></svg>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a class="contact__link" href="https://www.linkedin.com/in/matan-elgrissi-8b07bb346/" rel="noopener noreferrer">
+              <svg class="icon icon--small" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </section>
     </main>
 
-    <script>
-        function searchProjects(query) {
-            const lower = (query || '').toLowerCase();
-            for (const card of document.querySelectorAll('.project-card')) {
-                const title   = (card.querySelector(':scope > div > h3')?.textContent || '').toLowerCase();
-                const body    = (card.querySelector(':scope > div > p')?.textContent  || '').toLowerCase();
-                card.style.display = !![title, body].some(v => v.includes(lower)) ? '' : 'none';
-            }
-        }
-
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            const targetSec = document.getElementById('sec-' + tabId);
-            if (targetSec) targetSec.classList.remove('hidden');
-
-            document.querySelectorAll('nav button[id^="nav-"]').forEach(btn => {
-                btn.classList.remove('nav-active');
-                btn.classList.add('hover:text-black');
-            });
-
-            const activeNav = document.getElementById('nav-' + tabId);
-            if (activeNav) {
-                activeNav.classList.add('nav-active');
-                activeNav.classList.remove('hover:text-black');
-            }
-
-            const indicator = document.getElementById('nav-indicator');
-            if (indicator && activeNav) {
-                indicator.style.left = activeNav.offsetLeft + 'px';
-                indicator.style.width = activeNav.offsetWidth + 'px';
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function filterProjects(tag) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-tag') === tag) {
-                    btn.classList.add('filter-active');
-                } else {
-                    btn.classList.remove('filter-active');
-                }
-            });
-
-            document.querySelectorAll('.project-card').forEach(card => {
-                const tags = card.getAttribute('data-tags').split(',');
-                if (tag === 'All' || tags.includes(tag)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
-
-        switchTab('home');
-        lucide.createIcons();
-    </script>
-</body>
+    <footer class="site-footer">
+      Matan Elgrissi · <a class="site-footer__link" href="https://github.com/SZ-io/SZ-io.github.io" rel="noopener noreferrer">Source</a>
+    </footer>
+  </body>
 </html>
