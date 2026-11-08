@@ -80,6 +80,12 @@
     color: var(--text);
   }
 
+  a,
+  button,
+  input {
+    scroll-margin-block: var(--header-height);
+  }
+
   :focus-visible {
     outline: var(--focus-width) solid var(--accent);
     outline-offset: var(--focus-offset);
