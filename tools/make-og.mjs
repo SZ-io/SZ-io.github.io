@@ -22,7 +22,7 @@ if (!chrome) {
 }
 
 const tokens = readFileSync(new URL('../assets/css/tokens.css', import.meta.url), 'utf8');
-const darkValue = (name) => tokens.match(new RegExp(`--${name}:\\s*light-dark\\([^,]+,\\s*([^)]+)\\)`))[1];
+const lightValue = (name) => tokens.match(new RegExp(`--${name}:\\s*light-dark\\(\\s*([^,]+),`))[1];
 // Embedded because a file:// page can't load a font from another file:// path.
 const font = readFileSync(new URL('../assets/fonts/hanken-grotesk-latin-wght-normal.woff2', import.meta.url)).toString('base64');
 
@@ -36,22 +36,24 @@ const html = `<!doctype html>
   }
   html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
   body {
-    background: ${darkValue('bg')};
-    color: ${darkValue('text')};
+    background: ${lightValue('bg')};
+    color: ${lightValue('text')};
     font-family: "Hanken Grotesk", sans-serif;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 0 96px;
+    text-align: center;
+    padding: 0 72px;
     box-sizing: border-box;
   }
-  i { background: ${darkValue('accent')}; display: block; width: 40px; height: 40px; margin-bottom: 48px; }
-  h1 { font-size: 128px; line-height: 1; letter-spacing: -0.035em; margin: 0 0 32px; font-weight: 800; }
-  p { font-size: 40px; line-height: 1.3; margin: 0; color: ${darkValue('text-soft')}; max-width: 860px; }
+  h1 { font-size: 152px; line-height: 0.98; letter-spacing: -0.045em; margin: 0 0 28px; font-weight: 800; }
+  p { font-size: 34px; line-height: 1.3; margin: 0; color: ${lightValue('text-soft')}; }
+  i { background: ${lightValue('btn-bg')}; display: block; width: 216px; height: 64px; border-radius: 999px; margin-top: 48px; }
 </style>
-<i></i>
 <h1>${NAME}</h1>
-<p>${SUBLINE}</p>`;
+<p>${SUBLINE}</p>
+<i></i>`;
 
 const directory = mkdtempSync(join(tmpdir(), 'make-og-'));
 try {

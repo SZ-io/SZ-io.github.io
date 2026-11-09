@@ -44,7 +44,9 @@
   }
 
   body {
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: var(--dot-grid-pattern);
+    background-size: var(--dot-grid-spacing) var(--dot-grid-spacing);
     color: var(--text);
     display: flex;
     flex-direction: column;
@@ -59,24 +61,26 @@
   h2,
   h3,
   h4 {
-    font-weight: var(--font-weight-strong);
+    font-weight: var(--font-weight-title);
     line-height: var(--line-height-snug);
     text-wrap: balance;
   }
 
   h2 {
     font-size: var(--font-size-title);
-    font-weight: var(--font-weight-title);
+    font-weight: var(--font-weight-display);
     letter-spacing: var(--tracking-title);
+    line-height: var(--line-height-title);
     margin-block-end: var(--space-5);
   }
 
   h3 {
     font-size: var(--font-size-subheading);
+    letter-spacing: var(--tracking-subheading);
   }
 
   h4 {
-    font-size: var(--font-size-body);
+    font-size: var(--font-size-row-title);
   }
 
   p {
@@ -84,7 +88,8 @@
   }
 
   a {
-    color: var(--accent-text);
+    color: var(--text);
+    text-decoration-color: var(--control-border);
     text-underline-offset: var(--underline-offset);
     transition:
       color var(--duration-hover),
@@ -92,12 +97,28 @@
   }
 
   a:hover {
-    color: var(--text);
+    text-decoration-color: currentColor;
   }
 
   :focus-visible {
-    outline: var(--focus-width) solid var(--accent);
+    outline: var(--focus-width) solid var(--focus-ring);
     outline-offset: var(--focus-offset);
+  }
+
+  ::placeholder {
+    color: var(--muted);
+    opacity: 1;
+  }
+
+  :disabled {
+    color: var(--muted);
+    cursor: not-allowed;
+  }
+
+  @media print {
+    body {
+      background-image: none;
+    }
   }
 
   /* Headings and main take focus from script only; they aren't controls. */

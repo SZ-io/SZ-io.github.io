@@ -14,36 +14,57 @@
 
 @layer tokens {
   :root {
-    /* Dark is the default, whatever the system setting. */
-    color-scheme: dark;
+    /* Follows the system until theme-init.js or the toggle sets data-theme. */
+    color-scheme: light dark;
 
-    --bg: light-dark(#FFFFFF, #0F1113);
-    --surface: light-dark(#F4F5F6, #16191C);
-    --text: light-dark(#16191C, #ECE9E2);
-    --text-soft: light-dark(#3C434B, #B9BEC4);
-    --muted: light-dark(#565E67, #8D959D);
-    --rule: light-dark(#E2E5E9, #23272B);
-    --control-border: light-dark(#7B848D, #6A737C);
-    --accent: light-dark(#C2282E, #E5484D);
-    --accent-text: light-dark(#B02329, #F07077);
-    --fill: light-dark(#C2282E, #C93A3F);
-    --fill-hover: light-dark(#A32025, #B03338);
-    --on-fill: light-dark(#FFFFFF, #FFFFFF);
-    --pulse: light-dark(#16191C, #ECE9E2);
+    --bg: light-dark(#E9ECEF, #111316);
+    --float: light-dark(#F7F8F9, #1B1E22);
+    --float-hover: light-dark(#EEF0F2, #22262B);
+    --float-border: light-dark(transparent, #30353B);
+    --text: light-dark(#111316, #E9ECEF);
+    --text-soft: light-dark(#3E444B, #B4BAC1);
+    --muted: light-dark(#565E67, #8E969E);
+    --rule: light-dark(#D3D7DC, #262A2F);
+    --control-border: light-dark(#7A838C, #6E7780);
+    --focus-ring: light-dark(#111316, #E9ECEF);
+    --btn-bg: light-dark(#111316, #E9ECEF);
+    --btn-bg-hover: light-dark(#2A2E33, #F7F8F9);
+    --btn-text: light-dark(#F7F8F9, #111316);
+    --dot-grid: light-dark(rgba(17, 19, 22, 0.08), rgba(233, 236, 239, 0.07));
+
+    --laptop-body: light-dark(#23272C, #C4CAD0);
+    --laptop-edge: light-dark(#3A3F45, #E3E7EA);
+    --laptop-base-under: light-dark(#1A1D21, #9AA1A8);
+    --laptop-bezel: light-dark(#0B0D0F, #0B0D0F);
+    --laptop-screen: light-dark(#14171A, #14171A);
+    --laptop-ui: light-dark(#8E969E, #6E7780);
+    --laptop-ui-strong: light-dark(#E9ECEF, #E9ECEF);
+    --laptop-shadow: light-dark(rgba(17, 19, 22, 0.14), rgba(0, 0, 0, 0.5));
+    --laptop-track-opacity: 0.35;
+    --laptop-stroke: 1.2;
+    --laptop-check-stroke: 1.5;
+
+    /* light-dark() only takes colors, so the dark value is set further down. */
+    --shadow-float: 0 8px 24px rgba(17, 19, 22, 0.06), 0 1px 2px rgba(17, 19, 22, 0.04);
+
+    --dot-grid-pattern: radial-gradient(circle, var(--dot-grid) 1px, transparent 1px);
+    --dot-grid-spacing: 20px;
 
     --font-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
     --font-size-small: 0.875rem;
     --font-size-body: 1.0625rem;
-    --font-size-subheading: 1rem;
-    --font-size-lead: clamp(1.25rem, 1.05rem + 0.9vw, 1.625rem);
-    --font-size-title: clamp(1.75rem, 1.6rem + 0.6vw, 2rem);
-    --font-size-contact: clamp(1.5rem, 6.5vw, 2.75rem);
-    --font-size-display: clamp(3rem, 8vw, 6rem);
+    --font-size-subheading: 1.25rem;
+    --font-size-row-title: 1.125rem;
+    --font-size-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+    --font-size-title: clamp(2.5rem, 2.25rem + 1vw, 3rem);
+    --font-size-contact: clamp(1.25rem, 6.1vw, 2.75rem);
+    --font-size-display: clamp(4rem, 3rem + 7vw, 7rem);
 
     --line-height: 1.6;
     --line-height-snug: 1.3;
-    --line-height-display: 1;
+    --line-height-title: 1.05;
+    --line-height-display: 0.98;
 
     --font-weight-body: 400;
     --font-weight-label: 500;
@@ -51,9 +72,9 @@
     --font-weight-title: 700;
     --font-weight-display: 800;
 
-    --tracking-display: -0.035em;
-    --tracking-title: -0.02em;
-    --display-optical-inset: -0.035em;
+    --tracking-display: -0.045em;
+    --tracking-title: -0.035em;
+    --tracking-subheading: -0.015em;
 
     --space-1: 0.25rem;
     --space-2: 0.5rem;
@@ -62,31 +83,41 @@
     --space-5: 1.5rem;
     --space-6: 2rem;
     --space-7: 3rem;
-    --space-8: clamp(3rem, 2rem + 4vh, 4.5rem);
+    --space-hero: clamp(1.5rem, 0.75rem + 3vh, 3.5rem);
+    --space-sheet: clamp(1.25rem, 0.5rem + 3.5vw, 3rem);
+    --space-nav: 0.375rem;
 
-    --radius: 5px;
+    --radius-pill: 999px;
+    --radius-sheet: 20px;
+    --radius-row: 12px;
+    /* The search input is the only input on the site. */
+    --radius-input: var(--radius-pill);
     --radius-dot: 50%;
     --hairline: 1px;
-    --underline-width: 2px;
     --focus-width: 2px;
     --focus-offset: 2px;
     --underline-offset: 0.2em;
-    --underline-offset-control: 0.45em;
+    --underline-thickness-heavy: 0.07em;
 
-    --window-max: 60rem;
-    --reading-max: 44rem;
+    --page-max: 64rem;
+    --sheet-max: 48rem;
     --measure: 66ch;
-    --measure-lead: 34ch;
     --gutter: clamp(1rem, 4vw, 2rem);
     --touch-target: 2.75rem;
     --icon-size: 1.25rem;
     --icon-size-small: 1.125rem;
-    --header-height: 4rem;
-    --mark-size: 0.75rem;
+    --icon-size-external: 0.875rem;
+    --icon-nudge: -0.08em;
+    /* Top margin, nav pill and a clear gap: keeps focus out from under the bar. */
+    --header-height: 5rem;
     --dot-size: 0.5rem;
-    --skills-term-width: 11rem;
+    --fact-marker-size: 0.4375rem;
+    --laptop-max: 30rem;
+    --key-facts-narrow: 34rem;
+    --definition-term-width: 12rem;
 
     --duration-hover: 130ms;
+    --duration-nav: 200ms;
     --duration-window: 150ms;
     --duration-pulse: 2.4s;
     --pulse-scale: 2.75;
@@ -101,6 +132,14 @@
   }
 
   :root[data-theme="dark"] {
+    --shadow-float: none;
     color-scheme: dark;
+  }
+
+  /* Before data-theme is set, and whenever JavaScript is off. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --shadow-float: none;
+    }
   }
 }
