@@ -2,6 +2,7 @@
 (function () {
   var root = document.documentElement;
   var stored = null;
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   // js-pending keeps the stacked views off screen until the router has picked one.
   root.classList.add('js', 'js-pending');
@@ -9,10 +10,14 @@
   try {
     stored = localStorage.getItem('theme');
   } catch (error) {
-    // Storage can be blocked; fall back to the default theme.
+    // Storage can be blocked; fall back to the system preference.
   }
 
-  root.setAttribute('data-theme', stored === 'light' ? 'light' : 'dark');
+  if (stored !== 'light' && stored !== 'dark') {
+    stored = prefersDark ? 'dark' : 'light';
+  }
+
+  root.setAttribute('data-theme', stored);
 
   // Modules run before load. If the router never ran, use the no-JS layout.
   window.addEventListener('load', function () {

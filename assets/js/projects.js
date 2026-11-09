@@ -1,5 +1,6 @@
 const DATA_URL = new URL('../data/projects.json', import.meta.url);
 const GITHUB_URL = 'https://github.com/SZ-io';
+const SVG_NS = 'http://www.w3.org/2000/svg';
 const TAG_ORDER = ['Security', 'Networking', 'Linux', 'Python', 'C', 'Rust', 'ML'];
 
 function element(tag, className, text) {
@@ -11,6 +12,16 @@ function element(tag, className, text) {
   return node;
 }
 
+function externalIcon() {
+  const icon = document.createElementNS(SVG_NS, 'svg');
+  icon.setAttribute('class', 'icon icon--external');
+  icon.setAttribute('aria-hidden', 'true');
+  const use = document.createElementNS(SVG_NS, 'use');
+  use.setAttribute('href', '#icon-external');
+  icon.append(use);
+  return icon;
+}
+
 function createTitle(project) {
   const title = element('h4', 'project-row__title');
 
@@ -19,7 +30,7 @@ function createTitle(project) {
     link.href = project.repo;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.append(element('span', 'visually-hidden', ' (opens in a new tab)'));
+    link.append(externalIcon(), element('span', 'visually-hidden', ' (opens in a new tab)'));
     title.append(link);
   } else {
     title.textContent = project.title;
