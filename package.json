@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "ajv-cli": "5.0.0",
-    "html-validate": "11.19.0"
+    "html-validate": "11.21.0"
   },
   "overrides": {
     "fast-json-patch": "3.1.1"
